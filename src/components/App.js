@@ -1,12 +1,7 @@
-
 import React, { Component, useState } from "react";
 import '../styles/App.css';
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-
-    this.cityList = [{ name: 'Goa', country: 'India' },
+const cityList=[
     { name: 'Amsterdam', country: 'Netherlands' },
     { name: 'New York', country: 'USA' },
     { name: 'Darjeeling', country: 'India' },
@@ -35,12 +30,21 @@ class App extends Component {
     { name: 'Mount Abu', country: 'India' },
     { name: 'Tirupati', country: 'India' },
     ]
-  }
+  
 
-  render() {
+  function App() {
     return (
-      <div id="main">
-        {/* Do not remove the main div */}
+        <div id="main">
+      <ol>
+      {
+     cityList.filter((city)=>city.county==="India")
+      .map((city,index)=>{
+        const key='location'+index;
+        return<li key={key}>{city.name}</li>
+      })
+    
+      }
+  </ol>
       </div>
     )
   }
